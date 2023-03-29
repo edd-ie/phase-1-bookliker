@@ -32,11 +32,15 @@ document.addEventListener("DOMContentLoaded", function() {
                 let like = document.createElement('button');
                 like.textContent = 'Like';
 
+                let dislike = document.createElement('button');
+                dislike.textContent = 'disLike';
+
                 show.appendChild(thumbnail);
                 show.appendChild(details);
                 show.appendChild(userList);
                 show.appendChild(likes);
                 show.appendChild(like);
+                show.appendChild(dislike);
 
                 thumbnail.src = data[i].img_url;
                 details.textContent = data[i].description;
@@ -50,6 +54,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
                 like.addEventListener('click',()=>{
                     let hold = parseInt(data[i].users.length) + 1
+                    likes.textContent = `likes: ${hold}`;
+                })
+
+                dislike.addEventListener('click',()=>{
+                    let hold = parseInt(data[i].users.length) - 1
                     likes.textContent = `likes: ${hold}`;
                 })
 
